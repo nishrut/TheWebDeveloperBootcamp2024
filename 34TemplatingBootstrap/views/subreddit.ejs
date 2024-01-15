@@ -1,0 +1,29 @@
+<%- include('./partials/head') %> 
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+  <h1><%= name %></h1>
+
+  <!-- <div><strong>Description:</strong> <%#= description %></div> -->
+  <!-- <div><strong>Subscribers:</strong> <%#= subscribers %></div> -->
+  <h2><%= description %></h2>
+  <p><%= subscribers %> Total Subscribers</p>
+
+  <hr />
+
+  <% posts.forEach(e => { %>
+  <!-- <div style="border: 2px solid #000; padding: 5pxv; margin: 5px">
+        <strong>Title:</strong> <%#= e.title %>
+        <br />
+        <small><strong>Author</strong> - <%#= e.author %></small>
+      </div> -->
+
+  <article>
+    <p><%= e.title %> - <strong><%= e.author %></strong></p>
+    <% if (e.img) { %>
+    <img src="<%= e.img %>" alt="" />
+    <% } %>
+  </article>
+
+  <% }) %>
+</div>
+<%- include('partials/footer.ejs') %>

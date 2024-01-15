@@ -1,0 +1,11 @@
+<%- include('./partials/head') %> 
+<%- include('partials/navbar.ejs') %>
+<div class="container">
+  <h1>All the cats</h1>
+  <ul>
+    <% cats.forEach(e => { %>
+    <li><%= e %></li>
+    <% }) %>
+  </ul>
+</div>
+<%- include('partials/footer.ejs') %>
