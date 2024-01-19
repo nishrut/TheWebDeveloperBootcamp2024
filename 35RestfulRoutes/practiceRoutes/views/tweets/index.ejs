@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Site</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tweets</h1>
+      <% tweetDB.forEach(user => { %>
+      <div class="user">
+        <div class="border border-dark rounded p-3 m-2">
+          <div class="border rounded border-dark d-inline-block p-2 mb-2">
+            <h2><%= user.username %></h2>
+          </div>
+          <% user.tweets.forEach(tweet => { %>
+          <div class="tweet">
+            <div class="border border-dark rounded p-3 m-2">
+              <h5><%= tweet.text %></h5>
+              <small>Comments:</small>
+              <div class="border border-0 p-2">
+                <% tweet.comments.forEach(comment => { %> <%= comment %>
+                <br />
+                <% }); %>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+</html>
