@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All ToDos</title>
+  </head>
+  <body>
+    <h1>ToDo List</h1>
+
+    <div>
+      <h3>Remaining Tasks:</h3>
+      <% incompletedTodos.forEach(todo => { %>
+      <ul>
+        <li>
+          <a href="/todos/<%= todo.id %>/edit"> <button>&#9998;</button></a>
+          <%= todo.task %>
+          <form action="/todos/<%= todo.id %>/markCompleted?_method=PATCH" method="post">
+            <button>&check;</button>
+          </form>
+        </li>
+      </ul>
+      <% }) %>
+      <a href="/todos/new"><button>Add New Task</button></a>
+    </div>
+
+    <div>
+      <h3>Completed Tasks:</h3>
+      <% completedTodos.forEach(todo => { %>
+      <ul>
+        <li><%= todo.task %></li>
+      </ul>
+      <% }) %>
+    </div>
+  </body>
+</html>
