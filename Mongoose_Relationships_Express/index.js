@@ -41,7 +41,7 @@ app.get('/farms/new', (req, res,) => {
 
 app.get('/farms/:id', async (req, res) => {
     const farm = await Farm.findById(req.params.id).populate('products')
-    console.log(farm);
+    // console.log(farm);
     res.render('farms/show', { farm })
 })
 
